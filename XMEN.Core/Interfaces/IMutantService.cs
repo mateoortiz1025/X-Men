@@ -5,7 +5,7 @@ namespace XMEN.Core.Interfaces
 {
     public interface IMutantService
     {
-        Task<bool> IsMutant(MutantRequest dna);
+        bool IsMutant(MutantRequest mutantRequest);
 
         Task<StatisticsResponse> GetStatistics();
     }
