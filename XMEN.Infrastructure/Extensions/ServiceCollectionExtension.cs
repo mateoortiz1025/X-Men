@@ -7,6 +7,7 @@ using System.IO;
 using XMEN.Core.Interfaces;
 using XMEN.Core.Services;
 using XMEN.Infrastructure.Configurations.Data;
+using XMEN.Infrastructure.Repositories;
 
 namespace XMEN.Infrastructure.Extensions
 {
@@ -23,17 +24,15 @@ namespace XMEN.Infrastructure.Extensions
             return services;
         }
 
-
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddTransient<IMutantService, MutantService>();
 
-            //services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
-            //services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             return services;
         }
-
 
         public static IServiceCollection AddSwagger(this IServiceCollection services, string xmlFileName)
         {

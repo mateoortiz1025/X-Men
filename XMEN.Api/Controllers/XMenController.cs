@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Net;
 using System.Threading.Tasks;
 using XMEN.Api.Responses;
 using XMEN.Core.DTOs;
@@ -19,16 +20,22 @@ namespace XMEN.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Statistics()
+        public async Task<IActionResult> Stats()
         {
-            return Ok();
+            var response = await _mutanService.GetStatistics();
+            return Ok(new ApiResponse<StatisticsResponse>(response));
         }
 
         [HttpPost]
-        public IActionResult Mutant(MutantRequest mutantRequest)
+        public async Task<IActionResult> Mutant(MutantRequest mutantRequest)
         {
-            bool result = _mutanService.IsMutant(mutantRequest);
-            return Ok(new ApiResponse<bool>(result));
+            bool isMutant = await _mutanService.IsMutant(mutantRequest);
+            if (isMutant)
+            {
+                return Ok(new ApiResponse<bool>(isMutant));
+            }
+
+            return new ObjectResult(new ApiResponse<bool>(isMutant)) { StatusCode = (int)HttpStatusCode.Forbidden };
         }
 
     }
