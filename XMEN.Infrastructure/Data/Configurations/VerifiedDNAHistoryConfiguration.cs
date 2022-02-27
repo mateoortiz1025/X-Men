@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using XMEN.Core.Entities;
-using XMEN.Core.Enumerations;
 
 namespace XMEN.Infrastructure.Data.Configurations
 {
@@ -17,9 +16,6 @@ namespace XMEN.Infrastructure.Data.Configurations
                 .IsRequired()
                 .HasMaxLength(250)
                 .IsUnicode(false);
-
-            builder.Property(e => e.HumanType)
-                   .HasConversion(x => (int)x, x => (HumanType)x);
         }
     }
 }

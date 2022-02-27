@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
 using System;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
@@ -8,7 +11,7 @@ using XMEN.Core.Entities;
 
 namespace XMEN.Infrastructure.Configurations.Data
 {
-    class MutantContext : DbContext
+    public partial class MutantContext : DbContext
     {
         public MutantContext()
         {
@@ -48,6 +51,25 @@ namespace XMEN.Infrastructure.Configurations.Data
                 entidad.UpdatedUTC = currentTime;
                 item.Property(nameof(entidad.CreatedUTC)).IsModified = false;
             }
+        }
+    }
+
+    public class MutantContextFactory : IDesignTimeDbContextFactory<MutantContext>
+    {
+        public MutantContext CreateDbContext(string[] args)
+        {
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.Development.json", optional: true)
+                .AddJsonFile("appsettings.Production.json", optional: true)
+                .Build();
+
+            var builder = new DbContextOptionsBuilder<MutantContext>();
+            var connectionString = configuration.GetConnectionString("XMenDB");
+
+            builder.UseNpgsql(connectionString);
+
+            return new MutantContext(builder.Options);
         }
     }
 }

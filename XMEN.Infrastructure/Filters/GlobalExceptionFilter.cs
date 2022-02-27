@@ -23,7 +23,7 @@ namespace XMEN.Infrastructure.Filters
                 {
                     errors = new[] { validation }
                 };
-                context.Result = new NotFoundObjectResult(json);
+                context.Result = new BadRequestObjectResult(json);
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 context.ExceptionHandled = true;
             }
