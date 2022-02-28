@@ -4,8 +4,8 @@ Proyecto API que expone dos recursos, el primero se encarga de validar por medio
 
 ## Requisitos de instalación
 
-_.Net CLI_ para ejecutar por consola la aplicación o visual studio que soporte _.Net Core 3.1_
-_pgAdmin_ para conectarse a la instancia de base de datos de _PostgreSQL._
+- _.Net CLI_ para ejecutar por consola la aplicación o visual studio que soporte _.Net Core 3.1_
+- _pgAdmin_ para conectarse a la instancia de base de datos de _PostgreSQL._
 
 ## Iniciando
 
