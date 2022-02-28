@@ -36,11 +36,11 @@ namespace XMEN.Tests
                 new VerifiedDNAHistory(){  Id = 3, IsMutant = false},
             };
 
-            int mutantCount = ListVerifiedDNAHistory.Where(x=>x.IsMutant).Count();
-            int humanCount = ListVerifiedDNAHistory.Count()- mutantCount;
-            double ratio = (double)mutantCount/humanCount;
+            int mutantCount = ListVerifiedDNAHistory.Where(x => x.IsMutant).Count();
+            int humanCount = ListVerifiedDNAHistory.Count() - mutantCount;
+            double ratio = (double)mutantCount / humanCount;
 
-            _mockUnitOfWork.Setup(x=>x.VerifiedDNAHistoryRepository.GetAll()).Returns(ListVerifiedDNAHistory);
+            _mockUnitOfWork.Setup(x => x.VerifiedDNAHistoryRepository.GetAll()).Returns(ListVerifiedDNAHistory);
 
             Task<StatisticsResponse> Statistics = service.GetStatistics();
 
@@ -57,7 +57,7 @@ namespace XMEN.Tests
             MutantService service = new MutantService(_mockUnitOfWork.Object);
 
             IEnumerable<VerifiedDNAHistory> ListVerifiedDNAHistory = new List<VerifiedDNAHistory>();
-           
+
             int mutantCount = ListVerifiedDNAHistory.Where(x => x.IsMutant).Count();
             int humanCount = ListVerifiedDNAHistory.Count() - mutantCount;
             double ratio = 0;

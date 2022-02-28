@@ -28,7 +28,8 @@ namespace XMEN.Tests
         {
             MutantService service = new MutantService(_mockUnitOfWork.Object);
 
-            MutantRequest mutantRequest = new MutantRequest() {
+            MutantRequest mutantRequest = new MutantRequest()
+            {
                 DNA = new List<string> {
                     "ATCCATG",
                     "TTTTAGC",
@@ -45,9 +46,9 @@ namespace XMEN.Tests
             {
                 DNA = sDNA,
                 IsMutant = true
-            }; 
-            _mockUnitOfWork.Setup(x=>x.VerifiedDNAHistoryRepository.GetVerifiedDNAHistoryByDNA(sDNA)).ReturnsAsync(value: null);
-            Task<bool> IsMutant =  service.IsMutant(mutantRequest);
+            };
+            _mockUnitOfWork.Setup(x => x.VerifiedDNAHistoryRepository.GetVerifiedDNAHistoryByDNA(sDNA)).ReturnsAsync(value: null);
+            Task<bool> IsMutant = service.IsMutant(mutantRequest);
 
             Assert.IsNotNull(IsMutant.Result);
             Assert.AreEqual(verifiedDNAHistory.IsMutant, IsMutant.Result);
@@ -275,7 +276,7 @@ namespace XMEN.Tests
         public void incorrectDNALength()
         {
             MutantService service = new MutantService(_mockUnitOfWork.Object);
-           
+
             MutantRequest mutantRequest = new MutantRequest()
             {
                 DNA = new List<string> {
@@ -295,10 +296,37 @@ namespace XMEN.Tests
                 DNA = sDNA,
                 IsMutant = true
             };
-            _mockUnitOfWork.Setup(x => x.VerifiedDNAHistoryRepository.GetVerifiedDNAHistoryByDNA(sDNA)).ReturnsAsync(value : null);
+            _mockUnitOfWork.Setup(x => x.VerifiedDNAHistoryRepository.GetVerifiedDNAHistoryByDNA(sDNA)).ReturnsAsync(value: null);
             Task<bool> IsMutant = service.IsMutant(mutantRequest);
 
-            
+
+            Assert.AreEqual(errorLengthMessage, IsMutant.Exception.InnerException.Message);
+            _mockUnitOfWork.Verify(x => x.VerifiedDNAHistoryRepository.GetVerifiedDNAHistoryByDNA(sDNA));
+        }
+
+        [TestMethod]
+        public void incorrectLength()
+        {
+            MutantService service = new MutantService(_mockUnitOfWork.Object);
+
+            MutantRequest mutantRequest = new MutantRequest()
+            {
+                DNA = new List<string> {
+                    "ATG"
+                }
+            };
+
+            string errorLengthMessage = "Wrong DNA chain length";
+            string sDNA = string.Join("-", mutantRequest.DNA.ToArray());
+            VerifiedDNAHistory verifiedDNAHistory = new VerifiedDNAHistory()
+            {
+                DNA = sDNA,
+                IsMutant = false
+            };
+            _mockUnitOfWork.Setup(x => x.VerifiedDNAHistoryRepository.GetVerifiedDNAHistoryByDNA(sDNA)).ReturnsAsync(value: null);
+            Task<bool> IsMutant = service.IsMutant(mutantRequest);
+
+
             Assert.AreEqual(errorLengthMessage, IsMutant.Exception.InnerException.Message);
             _mockUnitOfWork.Verify(x => x.VerifiedDNAHistoryRepository.GetVerifiedDNAHistoryByDNA(sDNA));
         }
