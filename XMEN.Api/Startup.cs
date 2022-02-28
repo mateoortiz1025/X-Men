@@ -27,8 +27,7 @@ namespace XMEN.Api
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
-                    builder => builder
-                         .AllowAnyOrigin()
+                     builder => builder.WithOrigins("https://02w083njoh.execute-api.us-east-1.amazonaws.com/")
                         .AllowAnyMethod()
                         .AllowAnyHeader()
                         );
@@ -81,9 +80,8 @@ namespace XMEN.Api
 
             app.UseRouting();
 
-            app.UseAuthorization();
-
             app.UseCors("CorsPolicy");
+
 
             app.UseEndpoints(endpoints =>
             {
