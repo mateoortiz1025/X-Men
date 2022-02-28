@@ -32,7 +32,7 @@ Proyecto API que expone dos recursos, el primero se encarga de validar por medio
 
 ### Firma de las APIs 📋
 
-La aplicacion utiliza la libreria Swagger para generar la firma de las APIs, para acceder a la interfaz se debe ejecutar la aplicación en el entorno local e ingresar al link https://localhost:5001/ esta sera la pagina por defecto en el ambiende de desarrollo.
+La aplicacion utiliza la libreria Swagger para generar la firma de las APIs, para acceder a la interfaz se debe ejecutar la aplicación en el entorno local e ingresar al link https://localhost:5001/ esta es la pagina por defecto en el ambiente de desarrollo.
 
 ![Alt text](https://readme-resources.s3.amazonaws.com/swagger.PNG?raw=true "Optional Title")
 
