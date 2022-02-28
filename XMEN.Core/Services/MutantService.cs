@@ -64,7 +64,7 @@ namespace XMEN.Core.Services
             }
 
             string[,] Data = PrepareData(mutantRequest.DNA.ToArray(), lengthDna);
-            int k = 0, sequenceCount = 0;
+            int sequenceCount = 0;
             for (int i = 0; i < lengthDna; i++)
             {
                 for (int j = 0; j < lengthDna; j++)
@@ -78,7 +78,7 @@ namespace XMEN.Core.Services
                     {
                         isNavigateHorizontallyRight = true;
                         l = 1;
-                        while (l < minimumLengthSeq && currentValue.Equals(Data[i, k + 1]))
+                        while (l < minimumLengthSeq && currentValue.Equals(Data[i, j + l]))
                         {
                             l++;
                         }
@@ -104,7 +104,7 @@ namespace XMEN.Core.Services
                     {
                         isNavigateVertically = true;
                         l = 1;
-                        while (l < minimumLengthSeq && currentValue.Equals(Data[k + 1, j]))
+                        while (l < minimumLengthSeq && currentValue.Equals(Data[i + l, j]))
                         {
                             l++;
                         }
