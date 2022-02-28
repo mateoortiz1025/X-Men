@@ -31,7 +31,7 @@ namespace XMEN.Core.Services
             {
                 stats.CountHumanDNA = ListVerifiedDNA.Where(x => x.IsMutant == false).Count();
                 stats.CountMutantDNA = ListVerifiedDNA.Count() - stats.CountHumanDNA;
-                stats.Ratio = stats.CountMutantDNA / stats.CountHumanDNA;
+                stats.Ratio = (double)stats.CountMutantDNA / stats.CountHumanDNA;
             }
 
             return Task.FromResult(stats);

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMEN.Infrastructure", "XMEN
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMEN.Core", "XMEN.Core\XMEN.Core.csproj", "{F9B99D30-0858-4697-BEBE-9730F0C9DC29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMEN.Test", "XMEN.Test\XMEN.Test.csproj", "{FCA7D1CC-9339-45A0-A7F3-249228A3DD8D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMEN.Tests", "XMEN.Tests\XMEN.Tests.csproj", "{E9EC2582-0638-4985-B495-9586DA388CEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{F9B99D30-0858-4697-BEBE-9730F0C9DC29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9B99D30-0858-4697-BEBE-9730F0C9DC29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9B99D30-0858-4697-BEBE-9730F0C9DC29}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FCA7D1CC-9339-45A0-A7F3-249228A3DD8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FCA7D1CC-9339-45A0-A7F3-249228A3DD8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FCA7D1CC-9339-45A0-A7F3-249228A3DD8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FCA7D1CC-9339-45A0-A7F3-249228A3DD8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9EC2582-0638-4985-B495-9586DA388CEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9EC2582-0638-4985-B495-9586DA388CEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9EC2582-0638-4985-B495-9586DA388CEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9EC2582-0638-4985-B495-9586DA388CEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
