@@ -21,7 +21,7 @@ _pgAdmin_ para conectarse a la instancia de base de datos de _PostgreSQL_
   Update-Database
   ```
 
-- _Tambien puede ejecutar estos comando en consola para ejecutar la aplicacion (Debe tener instalado .Net Cli)_
+- _Tambien puede ejecutar estos comandos en consola para ejecutar la aplicacion (Debe tener instalado .Net CLI)_
 
   ```
   cd XMEN.Api
@@ -46,7 +46,7 @@ La aplicacion utiliza la libreria Swagger para generar la firma de las APIs, par
 /XMEN.Infrastructure/PostmanCollections
 ```
 
-## Test
+## Tests
 
 
 - Se realizaron test para cada uno de los servicios y controladores.
@@ -54,7 +54,7 @@ Para ejecutar los test puede ejecutar estos comandos dentro del proyecto XMEN.Te
 
 
   ```
-  cd XMEN.Test
+  cd XMEN.Tests
   dotnet build
   dotnet test
   ```
