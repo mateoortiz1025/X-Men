@@ -43,7 +43,7 @@ La aplicacion utiliza la libreria Swagger para generar la firma de las APIs, par
 ## Despliegue de aplicación 📦
 
 - _Se despliega el proyecto en el servicio Lambda Functions de AWS._
-- _Secreo una instancia de base de datos RDS de PostgreSql que está dentro la misma VPC que la función Lambda._
+- _Se creo una instancia de base de datos RDS de PostgreSql que está dentro la misma VPC que la función Lambda._
 - _Se crea un API Gateway en cual se implementa una etapa de producción que permite consumir los dos endpoints de la API._
 
 ## Construido con 🛠️
