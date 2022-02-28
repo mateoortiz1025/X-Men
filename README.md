@@ -5,23 +5,25 @@ Proyecto API que expone dos recursos, el primero se encarga de validar por medio
 ## Requisitos de instalación
 
 _.Net CLI_ para ejecutar por consola la aplicación o visual studio que soporte _.Net Core 3.1_
-_pgAdmin_ para conectarse a la instancia de base de datos de _PostgreSQL_
+_pgAdmin_ para conectarse a la instancia de base de datos de _PostgreSQL._
 
 ## Iniciando
 
 - _Clonar el proyecto_
-- _Abrirlo en visual studio y ejecutar el proyecto API, actualmente el proyecto corre con una instancia de base de datos de AWS_
+- _Abrirlo en visual studio y ejecutar el proyecto API, actualmente el proyecto corre con una instancia de base de datos de AWS._
 
 - _Si desea trabajar con una base de datos local:_
   - _Cree una base de datos desde pgAdmin._
   - _Diríjase al archivo en appsetting.json en el proyecto API y modifique la cadena de conexión y el nombre de la base de datos._
-  - _Para aplicar las migraciones y tener la estructura de la base de datos podrá ejecutar el siguiente comando, ubicado en la capa de Infrastructure._
+  - _Para aplicar las migraciones y tener la estructura de la base de datos podrá ejecutar el siguiente comando en la ruta de XMEN.Infrastructure:_
+
 
   ```
+  cd XMEN.Infrastructure
   Update-Database
   ```
 
-- _Tambien puede ejecutar estos comandos en consola para ejecutar la aplicacion (Debe tener instalado .Net CLI)_
+- _Tambien puede ejecutar estos comandos en consola para ejecutar la aplicacion (Debe tener instalado .Net CLI)._
 
   ```
   cd XMEN.Api
@@ -73,5 +75,5 @@ Para ejecutar los test puede ejecutar estos comandos dentro del proyecto XMEN.Te
 
 ## Construido con 🛠️
 
-_El proyecto fue construido en .Net Core 3.1, el tipo es serverless, Se establece una arquitectura por capas, para la base de datos se utilizó PostgreSQL_
+_El proyecto fue construido en .Net Core 3.1, el tipo es serverless, Se establece una arquitectura por capas, para la base de datos se utilizó PostgreSQL._
 
