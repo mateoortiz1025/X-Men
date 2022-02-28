@@ -9,7 +9,7 @@ _pgAdmin_ para conectarse a la instancia de base de datos de _PostgreSQL_
 
 ## Iniciando
 
-- _Clonar el proyecto
+- _Clonar el proyecto_
 - _Abrirlo en visual studio y ejecutar el proyecto API, actualmente el proyecto corre con una instancia de base de datos de AWS_
 
 - _Si desea trabajar con una base de datos local:_
@@ -21,6 +21,12 @@ _pgAdmin_ para conectarse a la instancia de base de datos de _PostgreSQL_
   Update-Database
   ```
 
+- _Tambien puede ejecutar estos comando en consola para ejecutar la aplicacion (Debe tener instalado .Net Cli)_
+
+  ```
+  cd XMEN.Api
+  dotnet run
+  ```
 
 ### Firma de las APIs 📋
 
@@ -40,10 +46,29 @@ La aplicacion utiliza la libreria Swagger para generar la firma de las APIs, par
 /XMEN.Infrastructure/PostmanCollections
 ```
 
+## Test
+
+
+- Se realizaron test para cada uno de los servicios y controladores.
+Para ejecutar los test puede ejecutar estos comandos dentro del proyecto XMEN.Test:
+
+
+  ```
+  cd XMEN.Test
+  dotnet build
+  dotnet test
+  ```
+  
+  _Resultados_
+
+![Alt text](https://readme-resources.s3.amazonaws.com/test.jpeg?raw=true "Optional Title")
+
+
+
 ## Despliegue de aplicación 📦
 
 - _Se despliega el proyecto en el servicio Lambda Functions de AWS._
-- _Se creo una instancia de base de datos RDS de PostgreSql que está dentro la misma VPC que la función Lambda._
+- _Se crea una instancia de base de datos RDS de PostgreSql que está dentro la misma VPC que la función Lambda._
 - _Se crea un API Gateway en cual se implementa una etapa de producción que permite consumir los dos endpoints de la API._
 
 ## Construido con 🛠️
